@@ -4,9 +4,20 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="i in thisdata"><img class="sw-img" :src="i.img" alt=""></div>
         </div>
+      </div>
 
-        <!-- 如果需要滚动条 -->
+      <div class="footer">
+        <div class="ftLeft">
+          NOTICE
+        </div>
 
+        <div class="ftcenter">
+             |
+        </div>
+
+        <div class="ftRight">
+          DSHUI   |    声  明
+        </div>
       </div>
     </div>
 </template>
@@ -51,6 +62,8 @@
 </script>
 
 <style scoped>
+
+
   .swiper-container {
     width: 100%;
     height: 254px;
@@ -59,5 +72,43 @@
   .sw-img {
     width: 100%;
     height: 100%;
+
+  }
+
+  .footer {
+    height: 40px;
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+    padding: 10px;
+  }
+
+  .ftLeft {
+    font-weight: 700;
+    font-size: 1.6em;
+    float: left;
+  }
+
+  .ftcenter {
+    float: left;
+    font-size: 14px;
+    color: #000;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 10px;
+  }
+
+  .ftRight {
+    color: #000;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+    font-size: 1.6em;
+    margin-left: 25px;
+
   }
 </style>

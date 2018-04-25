@@ -5,7 +5,8 @@ import login from '@/components/login/login'
 import reg from '@/components/login/register'
 import resetPwd from '@/components/login/forgetPassword'
 import index from '@/components/index/index'
-import snowing from '@/components/index/snowing'
+import nav from '@/components/index/nav'
+import catagory from '@/components/cata/index'
 
 Vue.use(Router)
 
@@ -37,9 +38,14 @@ export default new Router({
       component: index
     },
     {
-      path: '/snowing',
-      name: 'snowing',
-      component: snowing
+      path: '/nav',
+      name: 'nav',
+      component: nav
+    },
+    {
+      path: '/catagory',
+      name: 'catagory',
+      component: catagory
     },
   ]
 })
