@@ -43,7 +43,8 @@
   }
 
   .wrap {
-
+    height: 1251px;
+    position: fixed;
     width: 20%;
     max-width: 128px;
     top: 3.5rem;

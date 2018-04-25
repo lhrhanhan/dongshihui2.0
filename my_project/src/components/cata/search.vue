@@ -38,6 +38,7 @@
   }
 
   .wrap {
+
     position: relative;
     width: 100%;
     padding: 8px 3px;
