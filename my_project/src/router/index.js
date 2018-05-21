@@ -7,6 +7,7 @@ import resetPwd from '@/components/login/forgetPassword'
 import index from '@/components/index/index'
 import nav from '@/components/index/nav'
 import catagory from '@/components/cata/index'
+import discover from '@/components/discover/index'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/catagory',
       name: 'catagory',
       component: catagory
+    },
+    {
+      path: '/discover',
+      name: 'discover',
+      component: discover
     },
   ]
 })

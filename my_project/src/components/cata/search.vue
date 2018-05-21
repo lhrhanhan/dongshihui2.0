@@ -1,7 +1,9 @@
 <template>
     <div class="wrap">
-      <img class="icon" src="../../assets/login/jingzi.png" alt="">
-      <input class="ss" type="search" placeholder="搜索喜欢的宝贝">
+      <span class="content-wrapper">
+        <div class="icon"><img src="../../assets/login/jingzi.png" alt=""></div>
+        <input type="text" class="cw-input" placeholder="搜索你喜欢的宝贝">
+      </span>
     </div>
 </template>
 
@@ -12,37 +14,46 @@
 </script>
 
 <style scoped>
-
-
-  .icon {
-    width: 16px;
-    line-height: 24px;
-    background: no-repeat;
-    background-size: contain;
-    vertical-align: middle;
-    position: absolute;
-    top: 34%;
-    left: 7%;
-  }
-
-  .ss {
-    width: 95%;
+  .cw-input {
+    width: 85%;
     height: 32px;
     line-height: 32px;
     border: none;
     vertical-align: middle;
     -webkit-appearance: none;
     font-size: 1.4rem;
-    padding-left: 9%;
+    padding-left: 35px;
     outline: none;
   }
 
-  .wrap {
-
-    position: relative;
+  .content-wrapper {
     width: 100%;
-    padding: 8px 3px;
+    height: 32px;
+    background: #fff;
+    position: relative;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    background: no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+  }
+
+  .icon img {
+    width: 100%;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 640px;
+    padding: 8px 0px;
     background: #000;
+    position: fixed;
     top: 0;
     margin: 0 auto;
     z-index: 101;

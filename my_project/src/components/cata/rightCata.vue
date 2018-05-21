@@ -1,20 +1,22 @@
 <template>
     <div class="wrap">
-      <ul class="content">
-        <li class="list" v-for="i in thisBigData">
-          <div class="list-img"><img :src="i.imgUrl" alt=""></div>
-          <div class="list-p">{{i.name}}</div>
+      <ul class="wr-ul">
+        <li class="active-list" v-for="i in thisBigData">
+          <div class="act-img"><img :src="i.imgUrl" alt=""></div>
+          <div class="acl-name">{{i.name}}</div>
         </li>
       </ul>
     </div>
 </template>
 
 <script>
+    import Bus from '../../common/js/eventBus'
     export default {
         name: "right-cata",
       data () {
         return {
-          thisBigData : ''
+          thisBigData : '',
+          thisLeftID : '4'
         }
       },
       mounted () {
@@ -31,37 +33,9 @@
 </script>
 
 <style scoped>
-  .list-p {
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    font-size: 1.3rem;
-
-  }
-  .list-img img{
-    width: 100%;
-    height: 101px;
-  }
-
-  .list-img {
-    display: block;
-    height: 100%;
-    margin: 0 auto;
-  }
-
-  .list{
-    margin-right: 5px;
-    width: 30.5%;
-    list-style: none;
-    float: left;
-    text-align: center;
-  }
-
-  li {
-    list-style: none;
-  }
-
   .wrap {
+    margin-top: 30px;
+    /*position: fixed;*/
     background: #fff;
     width: 80%;
     max-width: 512px;
@@ -69,5 +43,31 @@
     left: 20%;
     bottom: 5rem;
     float: right;
+  }
+
+  .wr-ul li {
+    margin-right: 5px;
+    width: 30.5%;
+    list-style: none;
+    float: left;
+    text-align: center;
+  }
+
+  .act-img {
+    height: 80px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .act-img img {
+    width: 100%;
+  }
+
+  .acl-name {
+    margin-top: 20px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 1.3rem;
   }
 </style>

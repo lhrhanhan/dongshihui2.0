@@ -20,7 +20,7 @@ module.exports = {
         headers: {
           Host: 'www.dshui.cc'
         }
-      },
+      }
     },
 
     // Various Dev Server settings

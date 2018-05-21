@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div class="wrap">
+      <div class="wrap" >
         <div class="footerbar">
           <div class="footer">
             <img src="../../assets/index/garyindex.png" alt="">

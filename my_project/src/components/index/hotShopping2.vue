@@ -69,6 +69,7 @@
   .wrap {
     background-color: #fff;
     padding: 1.8rem 0;
+    margin-bottom: 15px;
   }
 
   .p-title {

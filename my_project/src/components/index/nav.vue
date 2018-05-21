@@ -28,7 +28,7 @@
         <li class="icon-wapper">
           <img src="../../assets/index/daofu.png" alt="">
         </li>
-        <li>付邮</li>
+        <li @click="ss">付邮</li>
       </ul>
     </div>
 </template>
@@ -42,7 +42,7 @@
           }
       },
       mounted () {
-
+        
       }
     }
 </script>
