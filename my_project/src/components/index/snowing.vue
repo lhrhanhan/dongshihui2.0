@@ -2,7 +2,7 @@
     <div class="wrap">
       <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="i in thisdata"><img class="sw-img" :src="i.img" alt=""></div>
+          <div class="swiper-slide" v-for="(i,index) in thisdata"><img @click="clicked(index)" class="sw-img" :src="i.img" alt=""></div>
         </div>
       </div>
 
@@ -29,7 +29,8 @@
       name: "snowing",
       data () {
         return {
-          thisdata: ''
+          thisdata: '',
+          jumpUrl : ''
         }
       },
       mounted () {
@@ -57,6 +58,17 @@
             })
           }
         })
+      },
+      methods : {
+        clicked (index) {
+          this.jumpUrl = this.thisdata[index].rule.adid
+          this.$router.push({
+            path : 'secondHtml',
+            query : {
+              adiD : this.jumpUrl
+            }
+          })
+        }
       }
     }
 </script>

@@ -1,12 +1,17 @@
 <template>
     <div class="wrap">
-      <ul class="content" v-for="i in firstData">
-        <li class="title">{{i.title}}</li>
-        <li class="sub-title">{{i.summary}}</li>
-        <li class="img-title"><img :src="i.img" alt=""></li>
+      <router-link to="bigShopping"><ul class="content">
+        <li class="title">我爱大牌</li>
+        <li class="sub-title">殿堂级品牌推荐，你的私人品牌管家</li>
+        <li class="img-title"><img src="http://dshui-wap.oss-cn-hangzhou.aliyuncs.com/other/%E6%88%91%E7%88%B1%E5%A4%A7%E7%89%8C.jpg" alt=""></li>
       </ul>
+      </router-link>
 
-
+      <ul class="content">
+        <li class="title">本周新品</li>
+        <li class="sub-title">最新最热超值产品速递</li>
+        <li class="img-title"><img src="http://tupian.dshui.cc/c5c0cf836cf54eaf902be17c573d5acd20180521.jpg" alt=""></li>
+      </ul>
     </div>
 </template>
 
@@ -20,23 +25,27 @@
           }
       },
       mounted () {
-        this.$request({
-          type: 'GET',
-          url: 'api/adwap/loadAds?adids=1%7C2%7C3%7C4%7C5',
-          success: function (res) {
-            this.firstData = res.data.data.slice(3,5)
-            // console.log(this.firstData)
-          }
-        })
+        // this.$request({
+        //   type: 'GET',
+        //   url: 'api/adwap/loadAds?adids=1%7C2%7C3%7C4%7C5',
+        //   success: function (res) {
+        //     this.firstData = res.data.data.slice(3,5)
+        //   }
+        // })
       }
     }
 </script>
 
 <style scoped>
+  a {
+    text-decoration: none;
+  }
+
   .wrap {
     background-color: #fff;
     padding: 1rem 0;
     overflow: hidden;
+    margin-top: 20px;
   }
 
   .content {

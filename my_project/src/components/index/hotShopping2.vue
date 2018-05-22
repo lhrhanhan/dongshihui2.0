@@ -1,7 +1,7 @@
 <template>
     <div class="wrap">
       <div class="wrap">
-        <ul class="hot-Item" v-for="i in second">
+        <ul @click="isclick(index)" class="hot-Item" v-for="(i,index) in second">
           <li class="img-topImg"><img :src="i.img" alt=""></li>
           <li class="title">{{i.title}}</li>
           <li class="sub-title">{{i.subtitle}}</li>
@@ -15,7 +15,8 @@
         name: "hot-shopping2",
       data () {
           return {
-            second : ''
+            second : '',
+            jumpUrl : ''
           }
       },
       mounted () {
@@ -26,6 +27,17 @@
             this.second = res.data.data
           }
         })
+      },
+      methods : {
+          isclick (index) {
+            this.jumpID = this.second[index].adid
+            this.$router.push({
+              path : 'secondHtml',
+              query : {
+                adiD : this.jumpID
+              }
+            })
+          }
       }
     }
 </script>

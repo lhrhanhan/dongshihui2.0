@@ -8,6 +8,8 @@ import index from '@/components/index/index'
 import nav from '@/components/index/nav'
 import catagory from '@/components/cata/index'
 import discover from '@/components/discover/index'
+import secondHtml from '@/components/secondHtml/index'
+import bigShopping from '@/components/bigShopping/index'
 
 Vue.use(Router)
 
@@ -53,5 +55,15 @@ export default new Router({
       name: 'discover',
       component: discover
     },
+    {
+      path: '/secondHtml',
+      name: 'secondHtml',
+      component: secondHtml
+    },
+    {
+      path: '/bigShopping',
+      name: 'bigShopping',
+      component: bigShopping
+    }
   ]
 })

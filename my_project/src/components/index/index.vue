@@ -92,7 +92,7 @@
   }
 
   .wrap {
-    background-color: #ccc;
+    background-color: #f5f5f5;
   }
 
   .lunbo {

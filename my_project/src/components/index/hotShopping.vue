@@ -1,13 +1,13 @@
 <template>
-    <div class="wrap">
-  <p class="p-title">超值热卖</p>
+  <div class="wrap">
+    <p class="p-title">超值热卖</p>
 
-  <ul class="hot-Item" v-for="i in first">
-    <li class="img-topImg"><img :src="i.img" alt=""></li>
-    <li class="title">{{i.title}}</li>
-    <li class="sub-title">{{i.subtitle}}</li>
-  </ul>
-</div>
+    <ul class="hot-Item" @click="clicked(index)" v-for="(i,index) in first">
+      <li class="img-topImg"><img :src="i.img" alt=""></li>
+      <li class="title">{{i.title}}</li>
+      <li class="sub-title">{{i.subtitle}}</li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -16,6 +16,7 @@
       data () {
           return {
             first : '',
+            jumpID : ''
           }
       },
       mounted () {
@@ -24,18 +25,19 @@
             url: 'api/adwap/loadAdsByPadid?padid=6&pageNo=1',
             success : function (res) {
               this.first = res.data.data
-              // console.log(this.first)
             }
           })
-
-        // this.$request({
-        //   type: 'GET',
-        //   url: 'api/adwap/loadAdsByPadid?padid=6&pageNo=2',
-        //   success: function (res) {
-        //     console.log(res.data.data)
-        //   }
-        // })
-
+      },
+      methods : {
+        clicked (index) {
+          this.jumpID = this.first[index].adid
+          this.$router.push({
+            path : 'secondHtml',
+            query : {
+              adiD : this.jumpID
+            }
+          })
+        }
       }
     }
 </script>

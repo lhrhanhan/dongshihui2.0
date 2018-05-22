@@ -17,7 +17,6 @@
 
           <div>
             <div class="img-list">
-              <!--<span v-for="x in i.tpcpicList" :src="x.picurl" alt="">-->
               <img v-for="x in i.tpcpicList" class="is-img" :src="x.picurl" alt="">
             </div>
           </div>
