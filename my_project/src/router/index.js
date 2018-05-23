@@ -10,6 +10,8 @@ import catagory from '@/components/cata/index'
 import discover from '@/components/discover/index'
 import secondHtml from '@/components/secondHtml/index'
 import bigShopping from '@/components/bigShopping/index'
+import newShopping from '@/components/newShopping/index'
+import productList from '@/components/thirdHtml/index'
 
 Vue.use(Router)
 
@@ -64,6 +66,16 @@ export default new Router({
       path: '/bigShopping',
       name: 'bigShopping',
       component: bigShopping
+    },
+    {
+      path: '/newShopping',
+      name: 'newShopping',
+      component: newShopping
+    },
+    {
+      path: '/productList',
+      name: 'productList',
+      component: productList
     }
   ]
 })

@@ -7,11 +7,11 @@
       </ul>
       </router-link>
 
-      <ul class="content">
+      <router-link to="newShopping"><ul class="content">
         <li class="title">本周新品</li>
         <li class="sub-title">最新最热超值产品速递</li>
         <li class="img-title"><img src="http://tupian.dshui.cc/c5c0cf836cf54eaf902be17c573d5acd20180521.jpg" alt=""></li>
-      </ul>
+      </ul></router-link>
     </div>
 </template>
 
@@ -25,13 +25,7 @@
           }
       },
       mounted () {
-        // this.$request({
-        //   type: 'GET',
-        //   url: 'api/adwap/loadAds?adids=1%7C2%7C3%7C4%7C5',
-        //   success: function (res) {
-        //     this.firstData = res.data.data.slice(3,5)
-        //   }
-        // })
+
       }
     }
 </script>
