@@ -1,12 +1,12 @@
 <template>
     <div class="wrap">
-      <ul class="item">
+      <ul class="item"  @click="clicked1">
         <li class="icon-wapper">
           <img src="../../assets/index/newthings.png" alt="">
         </li>
         <li>全部</li>
       </ul>
-      <ul class="item">
+      <ul class="item" @click="clicked2">
         <li class="icon-wapper">
           <img src="../../assets/index/dazhe.png" alt="">
         </li>
@@ -18,13 +18,13 @@
         </li>
         <li>清货</li>
       </ul>
-      <ul class="item">
+      <ul class="item" @click="clicked4">
         <li class="icon-wapper">
           <img src="../../assets/index/allthings.png" alt="">
         </li>
         <li>回馈</li>
       </ul>
-      <ul class="item">
+      <ul class="item" @click="clicked5">
         <li class="icon-wapper">
           <img src="../../assets/index/daofu.png" alt="">
         </li>
@@ -42,7 +42,41 @@
           }
       },
       mounted () {
-        
+
+      },
+      methods : {
+        clicked1 () {
+          this.$router.push({
+            path : 'productlist',
+            query : {
+              jumpID : 0
+            }
+          })
+        },
+        clicked2 () {
+          this.$router.push({
+            path : 'productlist',
+            query : {
+              jumpID : 18
+            }
+          })
+        },
+        clicked4 () {
+          this.$router.push({
+            path : 'productlist',
+            query : {
+              jumpID : 3
+            }
+          })
+        },
+        clicked5 () {
+          this.$router.push({
+            path : 'productlist',
+            query : {
+              jumpID : 2
+            }
+          })
+        }
       }
     }
 </script>

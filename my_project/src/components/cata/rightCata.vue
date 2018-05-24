@@ -1,7 +1,7 @@
 <template>
     <div class="wrap">
       <ul class="wr-ul">
-        <li class="active-list" v-for="i in thisBigData">
+        <li class="active-list" @click="isclick" v-for="(i,index) in thisBigData">
           <div class="act-img"><img :src="i.imgUrl" alt=""></div>
           <div class="acl-name">{{i.name}}</div>
         </li>
@@ -27,8 +27,12 @@
               this.thisBigData = res.data.data
             }
           })
+      },
+      methods : {
+        isclick (index) {
+            alert('s')
+        }
       }
-
     }
 </script>
 
@@ -43,6 +47,10 @@
     left: 20%;
     bottom: 5rem;
     float: right;
+  }
+
+  .wr-ul {
+    overflow: hidden;
   }
 
   .wr-ul li {

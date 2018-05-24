@@ -10,7 +10,7 @@
 
     <div class="wr-right">
       <ul class="wrr-content">
-        <li v-for="(x,indexOne) in thisBigData">
+        <li @click="isclick(indexOne)" v-for="(x,indexOne) in thisBigData">
           <div class="wl-img">
             <img :src="x.imgUrl" alt="">
           </div>
@@ -30,7 +30,8 @@
         return {
           thisdata : '',
           thisID : '4',
-          thisBigData: ''
+          thisBigData: '',
+          thisThirdJumpID : ''
         }
       },
       mounted () {
@@ -53,6 +54,15 @@
         })
       },
       methods : {
+        isclick (indexOne) {
+          this.thisThirdJumpID = this.thisBigData[indexOne].id
+          this.$router.push({
+            path : 'productlist',
+            query : {
+              jumpID : this.thisThirdJumpID
+            }
+          })
+        },
         tab_list(index) {
           for (let a in this.thisdata) {
             this.$refs.wr_list[a].style.background = '#f0f0f0'
@@ -78,6 +88,10 @@
 </script>
 
 <style scoped>
+  .wrr-content {
+
+  }
+
   .wl-img {
     height: 80px;
     text-align: center;
