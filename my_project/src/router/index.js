@@ -12,6 +12,7 @@ import secondHtml from '@/components/secondHtml/index'
 import bigShopping from '@/components/bigShopping/index'
 import newShopping from '@/components/newShopping/index'
 import productList from '@/components/thirdHtml/index'
+import productDetail from '@/components/productDetail/index'
 
 Vue.use(Router)
 
@@ -76,6 +77,11 @@ export default new Router({
       path: '/productList',
       name: 'productList',
       component: productList
+    },
+    {
+      path: '/productDetail',
+      name: 'productDetail',
+      component: productDetail
     }
   ]
 })

@@ -12,7 +12,7 @@
         </li>
         <li>新品</li>
       </ul>
-      <ul class="item">
+      <ul class="item" @click="clicked3">
         <li class="icon-wapper">
           <img src="../../assets/index/huikui.png" alt="">
         </li>
@@ -74,6 +74,14 @@
             path : 'productlist',
             query : {
               jumpID : 2
+            }
+          })
+        },
+        clicked3 () {
+          this.$router.push({
+            path : 'productlist',
+            query : {
+              jumpID : 25
             }
           })
         }
