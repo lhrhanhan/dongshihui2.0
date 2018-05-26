@@ -21,26 +21,27 @@
 </template>
 
 <script>
-    export default {
-        name: "third-content",
-      data () {
-          return {
-            thisdata : '',
-            second : '',
-            third : '',
-            JumpID : this.$route.query.jumpID
-          }
-      },
-      mounted () {
-            this.$request({
-              type : 'GET',
-              url: `api/goodswap/ctgyGoods?ctgyId=${this.JumpID}&pageNo=1&sort=`,
-              success : function (res) {
-                this.thisdata = res.data.data
-              }
-            })
+  export default {
+    name: "third-content",
+    data () {
+      return {
+        thisdata : '',
+        second : '',
+        third : '',
+        JumpID : this.$route.query.jumpID
       }
+    },
+    mounted () {
+
+      this.$request({
+        type : 'GET',
+        url: `api/sec/goods?sect=0&sort=&pageNo=${this.JumpID}`,
+        success : function (res) {
+          this.thisdata = res.data.data
+        }
+      })
     }
+  }
 </script>
 
 <style scoped>

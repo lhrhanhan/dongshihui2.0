@@ -13,6 +13,7 @@ import bigShopping from '@/components/bigShopping/index'
 import newShopping from '@/components/newShopping/index'
 import productList from '@/components/thirdHtml/index'
 import productDetail from '@/components/productDetail/index'
+import cataList from '@/components/thirdHtml/index'
 
 Vue.use(Router)
 
@@ -82,6 +83,11 @@ export default new Router({
       path: '/productDetail',
       name: 'productDetail',
       component: productDetail
+    },
+    {
+      path: '/cataList',
+      name: 'cataList',
+      component: cataList
     }
   ]
 })

@@ -57,7 +57,7 @@
         isclick (indexOne) {
           this.thisThirdJumpID = this.thisBigData[indexOne].id
           this.$router.push({
-            path : 'productlist',
+            path : 'cataList',
             query : {
               jumpID : this.thisThirdJumpID
             }
