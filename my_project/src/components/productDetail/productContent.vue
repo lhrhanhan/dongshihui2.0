@@ -1,5 +1,5 @@
 <template>
-    <div class="wrap">
+    <div class="wrap" >
       <div class="ban" v-if="ban">
         <div class="sku-dialog">
           <div class="sku-header">
@@ -85,7 +85,7 @@
         </p>
 
         <p class="slectSku" @click="speice">
-          <span class="choice" v-if="changeColor != '' || changeSize != ''">已选：  {{chooseChicun}}:{{changeColor}},{{chosicsSizeColor}}:{{changeSize}}, x {{numCount}}</span>
+          <span class="choice" v-if="changeColor != '' || changeSize != ''">已选 {{chooseChicun}}:{{changeColor}},{{chosicsSizeColor}}:{{changeSize}}, x {{numCount}}</span>
           <span class="sc-u" v-if="changeColor == '' || changeSize == ''">请选择规格/数量</span>
         </p>
 
@@ -95,9 +95,9 @@
         </div>
 
         <div class="user-talk">
-          <div class="header">
-            <div class="header-left">用户评价({{userNum}}+)</div>
-            <div class="header-right">全部</div>
+          <div class="header" @click="useCenter">
+            <div class="header-left" >用户评价({{userNum}}+)</div>
+            <div class="header-right" >全部</div>
           </div>
           <ul class="comment-list">
             <div class="cell-wrapper" v-for="x in userInfo">
@@ -137,6 +137,7 @@
 </template>
 
 <script>
+  import Bus from '../../common/js/eventBus'
   import Swiper from 'swiper'
   import 'swiper/dist/css/swiper.min.css';
     export default {
@@ -165,7 +166,8 @@
             chooseChicun : '',
             changeColor : '',
             changeSize : '',
-            thisspecifications : ''
+            thisspecifications : '',
+            thisUrl : this.$route.query.thisPrID
           }
       },
       mounted () {
@@ -178,7 +180,7 @@
         })
         this.$request({
           type: 'GET',
-          url: 'api/goodswap/goodsDetail?goodsId=7124&token=',
+          url: `api/goodswap/goodsDetail?goodsId=${this.thisUrl}&token=`,
           success: function (res) {
             this.thisdata = res.data.data
             this.first = res.data.data.pictures
@@ -214,6 +216,17 @@
         })
       },
       methods : {
+        useCenter () {
+          this.$router.push({
+            path : 'userTalk',
+            query : {
+              thisUserID : this.thisUrl
+            }
+          })
+        },
+        // msg () {
+        //   Bus.$emit('msg',this.thisUrl)
+        // },
         sltChicun (indexo) {
           for (let i in this.chosicsXl) {
             this.$refs.chicun[i].style.color = ''
@@ -519,10 +532,7 @@
   }
 
   .leftImg {
-    width: 10%;
-    float: left;
-    height: 50px;
-    clear: both;
+
   }
 
   .clear {
@@ -602,7 +612,7 @@
     width: 74%;
     float: left;
     padding: 15px 15px 15px 6px;
-    line-height: 32px;
+    line-height: 22px;
     box-sizing: border-box;
   }
 

@@ -57,7 +57,7 @@
           this.$router.push({
             path : 'productlist',
             query : {
-              jumpID : 18
+              jumpID : 1
             }
           })
         },
@@ -65,7 +65,7 @@
           this.$router.push({
             path : 'productlist',
             query : {
-              jumpID : 3
+              jumpID : 13
             }
           })
         },
@@ -81,7 +81,7 @@
           this.$router.push({
             path : 'productlist',
             query : {
-              jumpID : 25
+              jumpID : 12
             }
           })
         }

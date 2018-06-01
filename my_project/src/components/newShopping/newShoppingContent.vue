@@ -5,19 +5,18 @@
     </div>
 
     <div class="content">
-      <li class="list-style" v-for="i in first">
+      <li @click="clicked(index)" class="list-style" v-for="(i,index) in first">
         <dl>
           <dt>
             <div class="img"><img :src="i.imgUrl" alt="">
-              <div class="sale-out" v-if="i.salesVolume == 0">
+              <div class="sale-out" v-if="i.salesVolume != 0">
                 <span>已售空</span>
               </div>
             </div>
 
-            <div class="newstag" v-if="i.tag !== ''">
+            <div class="newstag" v-if="i.inventory == ''">
               <p>今日<br>
                  新品
-
               </p>
             </div>
           </dt>
@@ -39,18 +38,29 @@
         name: "new-shopping-content",
       data () {
           return {
-            first : ''
+            first : '',
+            thisUrlID : ''
           }
       },
       mounted () {
         this.$request({
           type : 'GET',
-          url: 'api/goodswap/weeknew?pageNo=1',
+          url: 'api/goodswap/weeknew?pageNo=2',
           success : function (res) {
             this.first = res.data.data
-            console.log(this.first)
           }
         })
+      },
+      methods : {
+        clicked (index) {
+          this.thisUrlID = this.first[index].id
+          this.$router.push({
+            path : 'productDetail',
+            query : {
+              thisPrID : this.thisUrlID
+            }
+          })
+        }
       }
     }
 </script>

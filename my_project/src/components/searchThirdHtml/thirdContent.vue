@@ -21,39 +21,39 @@
 </template>
 
 <script>
-    export default {
-        name: "third-content",
-      data () {
-          return {
-            thisdata : '',
-            second : '',
-            third : '',
-            JumpID : this.$route.query.jumpID,
-            thisUrlID : '',
-            thisUrlEn : this.$route.query.UrlID
-          }
-      },
-      mounted () {
-        this.$request({
-          type : 'GET',
-          url : `api/sec/goods?sect=${this.JumpID}&sort=&pageNo=1`,
-          success : function (res) {
-            this.thisdata = res.data.data
+  export default {
+    name: "third-content",
+    data () {
+      return {
+        thisdata : '',
+        second : '',
+        third : '',
+        thisUrlID : '',
+        thisUrlEn : this.$route.query.thisEnid
+      }
+    },
+    mounted () {
+
+      this.$request({
+        type : 'GET',
+        url : `api/sec/goods?kw=${this.thisUrlEn}&sort=&pageNo=1`,
+        success : function (res) {
+          this.thisdata = res.data.data
+        }
+      })
+    },
+    methods : {
+      clicked (index) {
+        this.thisUrlID = this.thisdata[index].id
+        this.$router.push({
+          path : 'productDetail',
+          query : {
+            thisPrID : this.thisUrlID
           }
         })
-      },
-      methods : {
-        clicked (index) {
-          this.thisUrlID = this.thisdata[index].id
-          this.$router.push({
-            path : 'productDetail',
-            query : {
-              thisPrID : this.thisUrlID
-            }
-          })
-        }
       }
     }
+  }
 </script>
 
 <style scoped>

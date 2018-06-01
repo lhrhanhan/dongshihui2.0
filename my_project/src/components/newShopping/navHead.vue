@@ -1,7 +1,7 @@
 <template>
   <div class="newWrap">
     <div class="wrap">
-      <span class="left"><img src="../../assets/login/secBack.png" alt=""></span>
+      <span class="left" @click="back"><img src="../../assets/login/secBack.png" alt=""></span>
       <span class="center">本周新品</span>
     </div>
 
@@ -10,7 +10,7 @@
     </div>
 
     <div class="compontent-weekNewsItem">
-      <img v-for="i in first" :src="i.img" alt="">
+      <img @click="clicked(index)" v-for="(i,index) in first" :src="i.img" alt="">
     </div>
 
 
@@ -22,7 +22,8 @@
         name: "nav-head",
       data () {
           return {
-            first : ''
+            first : '',
+            thisUrlID : ''
           }
       },
       mounted () {
@@ -34,6 +35,20 @@
 
           }
         })
+      },
+      methods : {
+        back () {
+          this.$router.go(-1)
+        },
+        clicked (index) {
+          this.thisUrlID = this.first[index].goodsId
+          this.$router.push({
+            path : 'productDetail',
+            query : {
+              thisPrID : this.thisUrlID
+            }
+          })
+        }
       }
     }
 </script>

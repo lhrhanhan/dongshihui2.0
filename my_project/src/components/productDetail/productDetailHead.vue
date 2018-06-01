@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <div class="left">
+    <div class="left" @click="back">
       <img src="../../assets/login/back.png" alt="">
     </div>
     <div class="center">商品详情</div>
@@ -10,7 +10,12 @@
 
 <script>
     export default {
-        name: "product-detail-head"
+        name: "product-detail-head",
+      methods : {
+        back () {
+          this.$router.go(-1)
+        }
+      }
     }
 </script>
 

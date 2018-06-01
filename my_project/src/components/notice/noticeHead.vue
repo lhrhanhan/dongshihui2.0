@@ -1,32 +1,26 @@
 <template>
-  <div class="wrap">
-    <span @click="back" class="left">
-      <img  src="../../assets/login/secBack.png" alt="">
-    </span>
-
-    <span class="center">
-      我爱大牌
-    </span>
+  <div class="warp">
+    <span class="back" @click="back"><img src="../../assets/login/secBack.png" alt=""></span><span class="newsList">新闻列表</span>
   </div>
 </template>
 
 <script>
     export default {
-        name: "head-nav",
+        name: "notice-head",
       methods : {
-          back (){
-            this.$router.go(-1)
-          }
+        back () {
+          this.$router.go(-1)
+        }
       }
     }
 </script>
 
 <style scoped>
-  .center {
+  .newsList {
     font-size: 1.6rem;
   }
 
-  .left {
+  .back {
     position: absolute;
     left: 10px;
     height: 44px;
@@ -35,7 +29,7 @@
     top: 5px;
   }
 
-  .wrap {
+  .warp {
     background: #000;
     color: #fff;
     height: 44px;

@@ -49,7 +49,6 @@
           url: 'api/goodswap/subCtgyList?parentId=4',
           success : function (res) {
             this.thisBigData = res.data.data
-            // console.log(res.data.data)
           }
         })
       },

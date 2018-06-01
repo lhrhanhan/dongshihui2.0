@@ -13,7 +13,13 @@ import bigShopping from '@/components/bigShopping/index'
 import newShopping from '@/components/newShopping/index'
 import productList from '@/components/thirdHtml/index'
 import productDetail from '@/components/productDetail/index'
-import cataList from '@/components/thirdHtml/index'
+import cataList from '@/components/cataThirdHtml/index'
+import notice from '@/components/notice/index'
+import userCenter from '@/components/login/loginAgain'
+import shoppingCar from '@/components/productDetail/shoppingCar'
+import search from '@/components/search/index'
+import searchThird from '@/components/searchThirdHtml/index'
+import userTalk from '@/components/productDetail/userTalk'
 
 Vue.use(Router)
 
@@ -88,6 +94,36 @@ export default new Router({
       path: '/cataList',
       name: 'cataList',
       component: cataList
+    },
+    {
+      path: '/notice',
+      name: 'notice',
+      component: notice
+    },
+    {
+      path: '/userCenter',
+      name: 'userCenter',
+      component: userCenter
+    },
+    {
+      path: '/shoppingCar',
+      name: 'shoppingCar',
+      component: shoppingCar
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: search
+    },
+    {
+      path: '/searchThird',
+      name: 'searchThird',
+      component: searchThird
+    },
+    {
+      path: '/userTalk',
+      name: 'userTalk',
+      component: userTalk
     }
   ]
 })

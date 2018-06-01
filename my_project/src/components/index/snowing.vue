@@ -7,7 +7,7 @@
       </div>
 
       <div class="footer">
-        <div class="ftLeft">
+        <div @click="clickone" class="ftLeft">
           NOTICE
         </div>
 
@@ -67,6 +67,11 @@
             query : {
               adiD : this.jumpUrl
             }
+          })
+        },
+        clickone () {
+          this.$router.push({
+            path : 'notice',
           })
         }
       }

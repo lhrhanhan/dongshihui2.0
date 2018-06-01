@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <ul class="content">
-      <li @click="back" class="left">
+      <li class="left" @click="back">
         <img src="../../assets/login/secBack.png" alt="">
       </li>
       <router-link to="search">
@@ -18,14 +18,14 @@
 </template>
 
 <script>
-    export default {
-        name: "third-head",
-      methods : {
-          back () {
-            this.$router.go(-1)
-          }
+  export default {
+    name: "third-head",
+    methods : {
+      back () {
+        this.$router.go(-1)
       }
     }
+  }
 </script>
 
 <style scoped>

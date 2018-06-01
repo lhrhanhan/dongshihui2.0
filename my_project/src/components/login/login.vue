@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <div class="header">
-      <div class="headerLeft">
+      <div class="headerLeft" @click="back">
         <img src="../../assets/login/back.png" alt="">
       </div>
       <div class="headerCenter">
@@ -33,25 +33,45 @@
       name: "login",
       data () {
         return {
-
+          isCookies : ''
         }
       },
       mounted () {
-
+        if (this.isCookies.cnName != null) {
+          document.cookie = 'token:'+ '38684B57F4B691182815377185C900FB'
+        }
       },
       methods : {
+        back () {
+          this.$router.go(-1)
+        },
         clogin () {
           let ph = ''
           let pw = ''
           ph = this.$refs.phone.value
           pw = this.$refs.pwd.value
-          this.$request({
-            type : 'GET',
-            url : `api/user/login?userName=${ph}&passWord=38684B57F4B691182815377185C900FB`,
-            success : function (res) {
-              console.log(res.data)
-            }
-          })
+          let myreg=/^[1][3,4,5,7,8][0-9]{9}$/
+          if (!myreg.test(ph)) {
+            alert('请输入正确的手机号')
+            return false
+          } else if (pw.length < 6) {
+            alert('请输入长度为6位以上的密码')
+            return false
+          }
+          else {
+            this.$router.push({
+              path : 'userCenter',
+            })
+            this.$request({
+              type : 'GET',
+              url : `api/user/login?userName=${ph}&passWord=38684B57F4B691182815377185C900FB`,
+              success : function (res) {
+                this.isCookies = res.data.data
+                document.cookie = "token" + "=" + "38684B57F4B691182815377185C900FB" + "; " + "11";
+              }
+            })
+
+          }
         }
       }
     }

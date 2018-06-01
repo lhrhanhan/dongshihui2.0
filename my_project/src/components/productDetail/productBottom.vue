@@ -4,7 +4,7 @@
         <li class="wl-img"><img src="../../assets/login/erji.png" alt=""></li>
         <li class="wl-img"><img src="../../assets/login/shouchang.png" alt=""></li>
         <li class="wl-img"><img src="../../assets/login/gouw.png" alt=""></li>
-        <li class="wl-font">
+        <li class="wl-font" @click="shoppingCar">
           加入购物车
         </li>
       </div>
@@ -16,8 +16,37 @@
 </template>
 
 <script>
-    export default {
-        name: "product-bottom"
+  import Bus from '../../common/js/eventBus'
+  export default {
+        name: "product-bottom",
+      data () {
+          return {
+            thisname : '',
+            thisPrice : '',
+            thisUrl : ''
+          }
+      },
+      mounted () {
+        Bus.$on('msg', content => {
+          console.log(content)
+          this.$request({
+            type : 'GET',
+            url : `api/goodswap/goodsDetail?goodsId=${content}&token=`,
+            success : function (res) {
+              this.thisname = res.data.data.goods.name
+              this.thisPrice = res.data.data.goods.marketPrice/100
+              this.thisUrl = res.data.data.goods.imgUrl
+            }
+          })
+        })
+      },
+      methods : {
+        shoppingCar () {
+          Bus.$emit('nameMsg',this.thisname)
+          Bus.$emit('priceMsg',this.thisPrice)
+          Bus.$emit('imgMsg',this.thisUrl)
+        }
+      }
     }
 </script>
 

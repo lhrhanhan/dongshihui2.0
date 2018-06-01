@@ -1,13 +1,16 @@
 <template>
   <div class="wrap">
     <ul class="content">
+
       <li class="left">
         <img src="../../assets/login/secBack.png" alt="">
       </li>
+      <router-link to="search">
       <li class="center">
         <img src="../../assets/login/jingzi.png" alt="">
         <span class="search">搜索</span>
       </li>
+      </router-link>
       <li class="right"></li>
     </ul>
 
@@ -17,7 +20,12 @@
 
 <script>
   export default {
-    name: "third-head"
+    name: "third-head",
+    methods : {
+      back () {
+        this.$router.go(-1)
+      }
+    }
   }
 </script>
 

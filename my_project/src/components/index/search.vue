@@ -4,9 +4,11 @@
       <li class="left">
         <img src="../../assets/login/whitelogin.png" alt="">
       </li>
-      <li class="center">
+      <li class="center" @click="sear">
+        <router-link to="search">
         <i><img class="jz" src="../../assets/login/jingzi.png" alt=""></i>
         <div class="input">搜索喜欢的宝贝</div>
+        </router-link>
       </li>
       <li class="right">
         <div class="contentRight">

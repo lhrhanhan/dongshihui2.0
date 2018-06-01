@@ -1,7 +1,7 @@
 <template>
     <div class="wrap">
       <div class="wrap-list">
-        <div class="left"><img src="../../assets/login/secBack.png" alt=""></div>
+        <div class="left" @click="back"><img src="../../assets/login/secBack.png" alt=""></div>
         <div class="center">{{thisdata.title}}</div>
         <div class="right"><img src="../../assets/login/change.png" alt=""></div>
       </div>
@@ -21,7 +21,7 @@
 
       <div class="content">
         <ul class="content-wrap">
-          <li v-for="i in thislistdata" class="cw-list">
+          <li @click="clicked(index)" v-for="(i,index) in thislistdata" class="cw-list">
             <dl class="item">
               <dt>
                 <img :src="i.img" alt="">
@@ -50,7 +50,8 @@
         return {
           adID : this.$route.query.adiD,
           thisdata : '',
-          thislistdata : ''
+          thislistdata : '',
+          thisUrlID : ''
         }
       },
       mounted () {
@@ -73,7 +74,18 @@
         })
       },
       methods :  {
-
+        clicked (index) {
+          this.thisUrlID = this.thislistdata[index].goodsId
+          this.$router.push({
+            path : 'productDetail',
+            query : {
+              thisPrID : this.thisUrlID
+            }
+          })
+        },
+        back () {
+          this.$router.go(-1)
+        }
       }
     }
 </script>

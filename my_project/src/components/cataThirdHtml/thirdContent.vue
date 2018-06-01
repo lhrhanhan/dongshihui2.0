@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <div class="list" v-for="i in thisdata">
+    <div class="list" @click="clicked(index)" v-for="(i,index) in thisdata">
       <div class="wrap-left">
         <div class="wl-img">
           <img :src="i.imgUrl" alt="">
@@ -28,18 +28,29 @@
         thisdata : '',
         second : '',
         third : '',
-        JumpID : this.$route.query.jumpID
+        oneUrl : this.$route.query.jumpID,
+        thisProductID : ''
       }
     },
     mounted () {
-
       this.$request({
         type : 'GET',
-        url: `api/sec/goods?sect=0&sort=&pageNo=${this.JumpID}`,
+        url: `api/goodswap/ctgyGoods?ctgyId=${this.oneUrl}&pageNo=1&sort=`,
         success : function (res) {
           this.thisdata = res.data.data
         }
       })
+    },
+    methods : {
+      clicked (index) {
+        this.thisProductID = this.thisdata[index].id
+        this.$router.push({
+          path : 'productDetail',
+          query : {
+            thisPrID : this.thisProductID
+          }
+        })
+      }
     }
   }
 </script>
